@@ -15,6 +15,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using ClassLibrary_CameraManipulating;
 using static ClassLibrary_CameraManipulating.Filter;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace SpyWare
 {
@@ -24,18 +25,9 @@ namespace SpyWare
 
         public Form1_Window()
         {
-
-           
-
-
-                InitializeComponent();
-
-
+            InitializeComponent();
             ComboBox_Effect.SelectedIndex = 0;
         }
-
-
-
 
 
         private void Button_Capture_Click(object sender, EventArgs e)
@@ -50,18 +42,6 @@ namespace SpyWare
             }
 
         }
-
-        //private void CapturedPicture_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        //{
-        //    CapturedPicture.Image = (Bitmap)eventArgs.Frame.Clone();
-
-        //}
-
-        //private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        //{
-        //    CapturedVideo.Image = (Bitmap)eventArgs.Frame.Clone();
-        //}
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -134,14 +114,11 @@ namespace SpyWare
 
                 }
             }
+            else
+            {
+                MessageBox.Show("Please take a screenshot first.", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-        //private void Form1_ResizeEnd(object sender, EventArgs e)
-        //{
-
-
-
-        //}
 
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -151,7 +128,6 @@ namespace SpyWare
 
         private void ComboBox_Effect_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             switch (ComboBox_Effect.SelectedIndex)
             {
                 case (int)Effects.NoEffect:
@@ -218,13 +194,13 @@ namespace SpyWare
                 //    Filter.FilterValue = (int)Effects.Devil;
                 //    break;
 
-                //case (int)Effects.FlipX:
-                //    Filter.FilterValue = (int)Effects.FlipX;
-                //    break;
+                case (int)Effects.FlipX:
+                    Filter.FilterValue = (int)Effects.FlipX;
+                    break;
 
-                //case (int)Effects.FlipY:
-                //    Filter.FilterValue = (int)Effects.FlipY;
-                //    break;
+                case (int)Effects.FlipY:
+                    Filter.FilterValue = (int)Effects.FlipY;
+                    break;
 
             }
 
@@ -232,10 +208,14 @@ namespace SpyWare
 
         private void Button_IncreaseTra_Click(object sender, EventArgs e)
         {
-            if(Filter.Transparency<=90)
+            if (Filter.Transparency <= 90)
             {
                 Transparency += 10;
                 Label_TranValue.Text = Transparency.ToString();
+            }
+            else
+            {
+                MessageBox.Show("100 is the maximum transparency value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -246,8 +226,11 @@ namespace SpyWare
                 Transparency -= 10;
                 Label_TranValue.Text = Transparency.ToString();
             }
+            else
+            {
+                MessageBox.Show("0 is the minimum transparency value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
-
 
     }
 }

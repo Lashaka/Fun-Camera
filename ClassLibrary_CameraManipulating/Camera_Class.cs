@@ -31,34 +31,35 @@ namespace ClassLibrary_CameraManipulating
         {
             //adding all cameras to combo box
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo filterInfo in filterInfoCollection)
+            if(filterInfoCollection.Count<1)
             {
-                ComboBox_Camera.Items.Add(filterInfo.Name);
-                ComboBox_Camera.SelectedIndex = 0;
-                VideoCaptureDevice = new VideoCaptureDevice();
+                MessageBox.Show("No camera detected, please connect it and try running the program again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            // \\
+            else
+            {
+                foreach (FilterInfo filterInfo in filterInfoCollection)
+                {
+                    ComboBox_Camera.Items.Add(filterInfo.Name);
+                    ComboBox_Camera.SelectedIndex = 0;
+                    VideoCaptureDevice = new VideoCaptureDevice();
+                }
+                // \\
 
-            // this starts the camera ( can convert to btn or whatever event)
-            VideoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[ComboBox_Camera.SelectedIndex].MonikerString);
-            VideoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
-            VideoCaptureDevice.Start();
+                // this starts the camera ( can convert to btn or whatever event)
+                VideoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[ComboBox_Camera.SelectedIndex].MonikerString);
+                VideoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+                VideoCaptureDevice.Start();
 
-            // \\
+                // \\
+            }
+
         }
 
         private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            if(CapturedVideo.Image != null)
-            {
-                CapturedVideo.Image.Dispose();
-            }
-            
+            System.GC.Collect();
+
             CapturedVideo.Image = Filter.ImageToFilter((Bitmap)eventArgs.Frame.Clone());
-           //CapturedVideo.Image = (Bitmap)eventArgs.Frame.Clone();
-
-
-
         }
     }
 }

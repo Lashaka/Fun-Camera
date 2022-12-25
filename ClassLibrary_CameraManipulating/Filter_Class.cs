@@ -44,10 +44,10 @@ namespace ClassLibrary_CameraManipulating
             DiscoParty,
             Rainbow,
             Chess,
-            Holy
+            Holy,
             //Devil,
-            //FlipX,
-            //FlipY
+            FlipX,
+            FlipY
         }
 
         public static void ApplyColor(ref Graphics ImageGraphics, Bitmap OutputImage, Color color)
@@ -58,9 +58,6 @@ namespace ClassLibrary_CameraManipulating
 
         public static Image ImageToFilter(this Image inputImage) //uses enum values for better understanding of code
         {
-
-           
-
             if (ImageGraphics != null)
             {
                 ImageGraphics.Dispose();
@@ -191,48 +188,48 @@ namespace ClassLibrary_CameraManipulating
 
                     break;
 
-          //      case (int)Effects.Devil: //random color
+                    //      case (int)Effects.Devil: //random color
 
-          //          BitmapImage theImage = new BitmapImage
-          //(new Uri(@"Images\devil.jpg", UriKind.Relative));
+                    //          BitmapImage theImage = new BitmapImage
+                    //(new Uri(@"Images\devil.jpg", UriKind.Relative));
 
-          //          ImageBrush myImageBrush = new ImageBrush(theImage);
+                    //          ImageBrush myImageBrush = new ImageBrush(theImage);
 
-          //          OutputImage.
-          //          Canvas myCanvas = new Canvas();
-          //          myCanvas.Width = 300;
-          //          myCanvas.Height = 200;
-          //          myCanvas.Background = myImageBrush;
+                    //          OutputImage.
+                    //          Canvas myCanvas = new Canvas();
+                    //          myCanvas.Width = 300;
+                    //          myCanvas.Height = 200;
+                    //          myCanvas.Background = myImageBrush;
 
-          //          mainPanel.Children.Add(myCanvas);
+                    //          mainPanel.Children.Add(myCanvas);
 
-          //          //BitmapImage theImage = new BitmapImage(new Uri(@"Images\devil.jpg", UriKind.Relative));
-
-
-          //          break;
+                    //          //BitmapImage theImage = new BitmapImage(new Uri(@"Images\devil.jpg", UriKind.Relative));
 
 
-          //      case (int)Effects.FlipX: //random color        //BUGGED           
-                    
-          //             OutputImage.RotateFlip(RotateFlipType.Rotate180FlipX);
-                    
-
-          //          break;
-
-          //      case (int)Effects.FlipY: //random color        //BUGGED              
+                   // break;
 
 
-          //          OutputImage.RotateFlip(RotateFlipType.Rotate180FlipY);
-          //          break;
+                case (int)Effects.FlipX: //random color        //BUGGED           
+
+                    OutputImage.RotateFlip(RotateFlipType.Rotate180FlipX);
+
+
+                    break;
+
+                case (int)Effects.FlipY: //random color        //BUGGED              
+
+
+                    OutputImage.RotateFlip(RotateFlipType.Rotate180FlipY);
+                    break;
             }
 
             string Path = AppDomain.CurrentDomain.BaseDirectory + @"tempImages/temp.png";
 
-            OutputImage.Save(Path, ImageFormat.Jpeg);
+            //OutputImage.Save(Path, ImageFormat.Jpeg);
 
-            Image image = Image.FromFile(Path);
+            //Image image = Image.FromFile(Path);
 
-            return image;
+            return OutputImage;
 
         }       
       
