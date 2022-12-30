@@ -27,6 +27,7 @@ namespace SpyWare
         {
             InitializeComponent();
             ComboBox_Effect.SelectedIndex = 0;
+            this.MaximumSize = new System.Drawing.Size(1485, 825);
         }
 
 
@@ -73,6 +74,7 @@ namespace SpyWare
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FileName = ".Jpeg";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.Title = "Save an Image File";
@@ -82,9 +84,8 @@ namespace SpyWare
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
 
-                    if (saveFileDialog1.FileName != "")
+                    if (saveFileDialog1.FileName != "" && saveFileDialog1.FileName != ".Jpeg")
                     {
-                        saveFileDialog1.FileName = saveFileDialog1.FileName + ".Jpeg";
                         // Saves the Image via a FileStream created by the OpenFile method.
                         System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
                         // Saves the Image in the appropriate ImageFormat based upon the
@@ -99,7 +100,7 @@ namespace SpyWare
 
                             case 2:
                                 this.CapturedPicture.Image.Save(fs,
-                                  System.Drawing.Imaging.ImageFormat.Bmp);
+                                  System.Drawing.Imaging.ImageFormat.Png);
                                 break;
 
                             case 3:
@@ -111,6 +112,10 @@ namespace SpyWare
                         // Code to write the stream goes here.
                         fs.Close();
                     }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 }
             }
@@ -120,11 +125,11 @@ namespace SpyWare
             }
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            Sizing_Class.SetSize(CapturedVideo, CapturedPicture, this);
+        //private void Form1_Resize(object sender, EventArgs e)
+        //{
+        //    Sizing_Class.SetSize(CapturedVideo, CapturedPicture, this);
 
-        }
+        //}
 
         private void ComboBox_Effect_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -189,10 +194,6 @@ namespace SpyWare
                 case (int)Effects.Holy:
                     Filter.FilterValue = (int)Effects.Holy;
                     break;
-
-                //case (int)Effects.Devil:
-                //    Filter.FilterValue = (int)Effects.Devil;
-                //    break;
 
                 case (int)Effects.FlipX:
                     Filter.FilterValue = (int)Effects.FlipX;

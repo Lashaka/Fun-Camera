@@ -170,10 +170,11 @@
             // Button_Save
             // 
             this.Button_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Button_Save.Location = new System.Drawing.Point(1238, 3);
+            this.Button_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Save.Location = new System.Drawing.Point(1157, 3);
             this.Button_Save.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Button_Save.Name = "Button_Save";
-            this.Button_Save.Size = new System.Drawing.Size(88, 27);
+            this.Button_Save.Size = new System.Drawing.Size(250, 69);
             this.Button_Save.TabIndex = 4;
             this.Button_Save.Text = "Save";
             this.Button_Save.UseVisualStyleBackColor = true;
@@ -182,10 +183,11 @@
             // Button_Capture
             // 
             this.Button_Capture.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Button_Capture.Location = new System.Drawing.Point(912, 3);
+            this.Button_Capture.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Capture.Location = new System.Drawing.Point(870, 3);
             this.Button_Capture.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Button_Capture.Name = "Button_Capture";
-            this.Button_Capture.Size = new System.Drawing.Size(166, 27);
+            this.Button_Capture.Size = new System.Drawing.Size(250, 69);
             this.Button_Capture.TabIndex = 2;
             this.Button_Capture.Text = "Take A Screenshot";
             this.Button_Capture.UseVisualStyleBackColor = true;
@@ -341,7 +343,6 @@
             this.Text = "Fun Camera";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.CapturedVideo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CapturedPicture)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

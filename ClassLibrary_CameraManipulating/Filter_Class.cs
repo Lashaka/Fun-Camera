@@ -45,7 +45,6 @@ namespace ClassLibrary_CameraManipulating
             Rainbow,
             Chess,
             Holy,
-            //Devil,
             FlipX,
             FlipY
         }
@@ -188,26 +187,6 @@ namespace ClassLibrary_CameraManipulating
 
                     break;
 
-                    //      case (int)Effects.Devil: //random color
-
-                    //          BitmapImage theImage = new BitmapImage
-                    //(new Uri(@"Images\devil.jpg", UriKind.Relative));
-
-                    //          ImageBrush myImageBrush = new ImageBrush(theImage);
-
-                    //          OutputImage.
-                    //          Canvas myCanvas = new Canvas();
-                    //          myCanvas.Width = 300;
-                    //          myCanvas.Height = 200;
-                    //          myCanvas.Background = myImageBrush;
-
-                    //          mainPanel.Children.Add(myCanvas);
-
-                    //          //BitmapImage theImage = new BitmapImage(new Uri(@"Images\devil.jpg", UriKind.Relative));
-
-
-                   // break;
-
 
                 case (int)Effects.FlipX: //random color        //BUGGED           
 
@@ -225,9 +204,6 @@ namespace ClassLibrary_CameraManipulating
 
             string Path = AppDomain.CurrentDomain.BaseDirectory + @"tempImages/temp.png";
 
-            //OutputImage.Save(Path, ImageFormat.Jpeg);
-
-            //Image image = Image.FromFile(Path);
 
             return OutputImage;
 
