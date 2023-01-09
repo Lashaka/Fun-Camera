@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,9 +19,9 @@ using AForge.Video.DirectShow;
 using ClassLibrary_CameraManipulating;
 using static ClassLibrary_CameraManipulating.Filter;
 using MessageBox = System.Windows.Forms.MessageBox;
-
 namespace SpyWare
 {
+
     public partial class Form1_Window : Form
     {
         Camera_Class camera_Class = new Camera_Class();
@@ -28,8 +31,26 @@ namespace SpyWare
             InitializeComponent();
             ComboBox_Effect.SelectedIndex = 0;
             this.MaximumSize = new System.Drawing.Size(1485, 825);
+
+
+            MakeACircle(Button_IncreaseTra, 4);
+            MakeACircle(Button_DecreaseTran, 4);
+            MakeACircle(Button_DecreaseTran, 4);
         }
 
+        public static void MakeACircle(Button btn,int value)
+        {
+            GraphicsPath p = new GraphicsPath();
+            p.AddEllipse(1, 1, btn.Width - value, btn.Height - value);
+            btn.Region = new Region(p);
+        }
+
+        public static void MakeACircle(Label btn, int value)
+        {
+            GraphicsPath p = new GraphicsPath();
+            p.AddEllipse(1, 1, btn.Width - value, btn.Height - value);
+            btn.Region = new Region(p);
+        }
 
         private void Button_Capture_Click(object sender, EventArgs e)
         {
@@ -232,6 +253,5 @@ namespace SpyWare
                 MessageBox.Show("0 is the minimum transparency value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
     }
 }
