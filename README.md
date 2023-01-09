@@ -2,7 +2,7 @@
  Application that uses your camera and adds effects into it, allows to save images.
  
 ## Victor Rutskin - Programming
-## Tomer Shevah - UI/UX
+## Tomer Shevach - UI/UX
 
 ## Progress
 Before Ui design:
