@@ -54,3 +54,31 @@ D:\Projects\Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrar
 D:\Projects\Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrary_CameraManipulating.csproj.CopyComplete
 D:\Projects\Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrary_CameraManipulating.dll
 D:\Projects\Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrary_CameraManipulating.pdb
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\ClassLibrary_CameraManipulating.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\ClassLibrary_CameraManipulating.pdb
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Controls.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Imaging.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Math.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Video.DirectShow.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Video.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\ImageProcessor.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\OpenXmlPowerTools.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\System.IO.Packaging.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\System.Management.Automation.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\System.ValueTuple.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Controls.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Imaging.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Math.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Video.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\AForge.Video.DirectShow.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\DocumentFormat.OpenXml.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\ImageProcessor.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\bin\Debug\System.ValueTuple.xml
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrary_CameraManipulating.csproj.AssemblyReference.cache
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrary_CameraManipulating.csproj.CoreCompileInputs.cache
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrary_CameraManipulating.csproj.CopyComplete
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrary_CameraManipulating.dll
+D:\Projects\Git\My Git\Fun-Camera\ClassLibrary_CameraManipulating\obj\Debug\ClassLibrary_CameraManipulating.pdb

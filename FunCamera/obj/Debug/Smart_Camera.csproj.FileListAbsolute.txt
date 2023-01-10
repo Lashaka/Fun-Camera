@@ -52,3 +52,30 @@ D:\Projects\Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.CoreCompileIn
 D:\Projects\Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.CopyComplete
 D:\Projects\Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.exe
 D:\Projects\Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.pdb
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\Smart_Camera.exe.config
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\Smart_Camera.exe
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\Smart_Camera.pdb
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Controls.dll
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.dll
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Imaging.dll
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Math.dll
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Video.DirectShow.dll
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Video.dll
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\ClassLibrary_CameraManipulating.dll
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\ClassLibrary_CameraManipulating.pdb
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.xml
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Controls.pdb
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Controls.xml
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Imaging.xml
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Math.xml
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Video.xml
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Video.DirectShow.xml
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.AssemblyReference.cache
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\SpyWare.Form1_Window.resources
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.Properties.Resources.resources
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.GenerateResource.cache
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.CoreCompileInputs.cache
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.CopyComplete
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.exe
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.pdb
