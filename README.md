@@ -5,14 +5,6 @@ This is a C# WinForm application that allows the user to access their camera, ap
 ### Victor Rutskin - Programming
 ### Tomer Shevach - UI/UX + QA
 
-## Progress
-### Sketch Version:
-![alt text](https://github.com/lashaka/Fun-Camera/blob/main/ImagesForGithub/Before_UI_UX_Design.png)
-### After UI design:
-![alt text](https://github.com/lashaka/Fun-Camera/blob/main/ImagesForGithub/After_UI_UX_Design.png)
-### First UI Implement:
-![alt text](https://github.com/lashaka/Fun-Camera/blob/main/ImagesForGithub/First_Design_after_UI_Implementing.png)
-
 ## Requirements
 - Windows operating system
 - A computer with a built-in camera or a webcam connected to the computer
@@ -25,3 +17,11 @@ This is a C# WinForm application that allows the user to access their camera, ap
 3. The application will open a window displaying the live video feed from your camera.
 4. Select a filter from the available options in the filter menu.
 5. You can click the save button to save the filtered video to your computer.
+
+## Development Progress
+### Sketch Version:
+![alt text](https://github.com/lashaka/Fun-Camera/blob/main/ImagesForGithub/Before_UI_UX_Design.png)
+### After UI design:
+![alt text](https://github.com/lashaka/Fun-Camera/blob/main/ImagesForGithub/After_UI_UX_Design.png)
+### First UI Implement:
+![alt text](https://github.com/lashaka/Fun-Camera/blob/main/ImagesForGithub/First_Design_after_UI_Implementing.png)
