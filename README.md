@@ -5,7 +5,9 @@
 ## Tomer Shevach - UI/UX
 
 ## Progress
-### Before Ui design:
+### Before UI design:
 ![alt text](https://github.com/lashaka/Fun-Camera/blob/main/BeforeUIdesign.png)
-### After Ui design:
+### After UI design:
+![alt text](https://github.com/lashaka/Fun-Camera/blob/main/After%20UI%20UX%20Design.png)
+### First UI Implement:
 ![alt text](https://github.com/lashaka/Fun-Camera/blob/main/After%20UI%20UX%20Design.png)
