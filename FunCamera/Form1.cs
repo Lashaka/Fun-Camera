@@ -30,15 +30,16 @@ namespace SpyWare
         {
             InitializeComponent();
             ComboBox_Effect.SelectedIndex = 0;
-            this.MaximumSize = new System.Drawing.Size(1485, 825);
-
 
             MakeACircle(Button_IncreaseTra, 4);
             MakeACircle(Button_DecreaseTran, 4);
             MakeACircle(Button_DecreaseTran, 4);
+
+
+
         }
 
-        public static void MakeACircle(Button btn,int value)
+        public static void MakeACircle(Button btn, int value)
         {
             GraphicsPath p = new GraphicsPath();
             p.AddEllipse(1, 1, btn.Width - value, btn.Height - value);
@@ -142,15 +143,9 @@ namespace SpyWare
             }
             else
             {
-                MessageBox.Show("Please take a screenshot first.", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please take a screenshot first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //private void Form1_Resize(object sender, EventArgs e)
-        //{
-        //    Sizing_Class.SetSize(CapturedVideo, CapturedPicture, this);
-
-        //}
 
         private void ComboBox_Effect_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -212,10 +207,6 @@ namespace SpyWare
                     Filter.FilterValue = (int)Effects.Chess;
                     break;
 
-                case (int)Effects.Holy:
-                    Filter.FilterValue = (int)Effects.Holy;
-                    break;
-
                 case (int)Effects.FlipX:
                     Filter.FilterValue = (int)Effects.FlipX;
                     break;
@@ -228,29 +219,118 @@ namespace SpyWare
 
         }
 
-        private void Button_IncreaseTra_Click(object sender, EventArgs e)
+        //last row cells are the same colour as the background, asked by the UI/UX designer 
+        private void tableLayoutPanel4_CellPaint_1(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            if (e.Row == 2 )
+            {
+                e.Graphics.FillRectangle(Brushes.DimGray, e.CellBounds);
+            }
+        }
+
+        //When user rezises all controls adapt accordingly
+        private void Form1_Window_ResizeEnd(object sender, EventArgs e)
+        {
+            ResizeAll();
+        }
+
+        //Function that resizes every control invidually 
+        void ResizeControl(Control control)
+        {
+            int originalFormWidth = 1500;
+            int originalFormHeight = 800;
+
+            // Get the current size of the screen
+            Rectangle screenSize = Screen.PrimaryScreen.Bounds;
+            float widthRatio = (float)screenSize.Width / (float)originalFormWidth;
+            float heightRatio = (float)screenSize.Height / (float)originalFormHeight;
+
+            int textRatio = 1;
+
+            if (control.GetType() == typeof(Button)) 
+            {
+                int ButtonWidth = 250;
+                int ButtonHeight = 120;
+                int TextSize = 22;
+
+                control.Width = (int)(ButtonWidth * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth)));
+                control.Height = (int)(ButtonHeight * (Convert.ToDouble(this.Height) / Convert.ToDouble(originalFormHeight)));
+
+                control.Font= new Font("Roboto", (int)(TextSize * (textRatio * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth)))), FontStyle.Bold);
+            }
+            else if (control.GetType() == typeof(Label) && (control.Name== "Label_Screenshot" || control.Name == "Label_LiveCamera"))
+            {
+                int TextSize = 32;
+
+                control.Font = new Font("Roboto", (int)(TextSize * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth))), FontStyle.Bold);
+
+            }
+            else if (control.GetType() == typeof(Label))
+            {
+                int TextSize = 22;
+
+                control.Font = new Font("Roboto", (int)(TextSize * (textRatio * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth)))), FontStyle.Bold);
+
+            }
+
+
+        }
+
+        //Selecting the resizable controls
+        void ResizeAll()
+        {
+            ResizeControl(Button_Save);
+            ResizeControl(Button_Capture);
+
+            ResizeControl(Label_ChooseCamera);
+            ResizeControl(Label_Effect);
+            ResizeControl(Label_LiveCamera);
+            ResizeControl(Label_Screenshot);
+            ResizeControl(Label_TranValue);
+            ResizeControl(Label_Transparency);
+        }
+
+
+        //to save latest window state
+        FormWindowState LastWindowState = FormWindowState.Minimized;
+
+        //Function that applies when window is maximized/minimized because ResizeEnd wont detect the change
+        private void Form1_Window_Resize(object sender, EventArgs e)
+        {
+            // When window state changes
+            if (WindowState != LastWindowState)
+            {
+                LastWindowState = WindowState;
+
+
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    ResizeAll();
+                    // Maximized!
+                }
+                if (WindowState == FormWindowState.Normal)
+                {
+                    ResizeAll();
+                    // Restored!
+                }
+            }
+        }
+
+        private void Button_IncreaseTra_Click_1(object sender, EventArgs e)
         {
             if (Filter.Transparency <= 90)
             {
                 Transparency += 10;
                 Label_TranValue.Text = Transparency.ToString();
             }
-            else
-            {
-                MessageBox.Show("100 is the maximum transparency value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
-        private void Button_DecreaseTran_Click(object sender, EventArgs e)
+        private void Button_DecreaseTran_Click_1(object sender, EventArgs e)
         {
             if (Filter.Transparency >= 10)
             {
                 Transparency -= 10;
                 Label_TranValue.Text = Transparency.ToString();
-            }
-            else
-            {
-                MessageBox.Show("0 is the minimum transparency value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

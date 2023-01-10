@@ -44,7 +44,6 @@ namespace ClassLibrary_CameraManipulating
             DiscoParty,
             Rainbow,
             Chess,
-            Holy,
             FlipX,
             FlipY
         }
@@ -170,21 +169,6 @@ namespace ClassLibrary_CameraManipulating
                             }
                         }
                     }
-                    break;
-
-                case (int)Effects.Holy: //random color                 
-
-                    double StartingWidth = OutputImage.Width / 2.5;
-                    double StartingHeight = OutputImage.Height / 10;
-
-                    ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Yellow)), Convert.ToInt32(StartingWidth), Convert.ToInt32(StartingHeight), Convert.ToInt32(OutputImage.Width / 2.5) / 2, OutputImage.Height / 40);
-                    ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Yellow)), Convert.ToInt32(StartingWidth), Convert.ToInt32(StartingHeight) - 50, Convert.ToInt32(OutputImage.Width / 2.5) / 2, OutputImage.Height / 40);
-                    ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Yellow)), Convert.ToInt32(StartingWidth), Convert.ToInt32(StartingHeight) - OutputImage.Height / 40 + 3, Convert.ToInt32(OutputImage.Width / 10) / 2, OutputImage.Height / 40);
-                    ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Yellow)), Convert.ToInt32(StartingWidth) + Convert.ToInt32(OutputImage.Width / 2.5) / 2 - Convert.ToInt32(OutputImage.Width / 10) / 2 + 3, Convert.ToInt32(StartingHeight) - OutputImage.Height / 40, Convert.ToInt32(OutputImage.Width / 10) / 2, OutputImage.Height / 40);
-
-                    ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.LightGoldenrodYellow)), 0, 0, OutputImage.Width, OutputImage.Width);
-
-
                     break;
 
 
