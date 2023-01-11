@@ -25,3 +25,5 @@ This is a C# WinForm application that allows the user to access their camera, ap
 ![alt text](https://github.com/lashaka/Fun-Camera/blob/main/ImagesForGithub/After_UI_UX_Design.png)
 ### First UI Implement:
 ![alt text](https://github.com/lashaka/Fun-Camera/blob/main/ImagesForGithub/First_Design_after_UI_Implementing.png)
+### Version 2:
+![alt text](https://github.com/Lashaka/Fun-Camera/blob/main/ImagesForGithub/Version_2.png)
