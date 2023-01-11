@@ -18,8 +18,11 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using ClassLibrary_CameraManipulating;
 using Smart_Camera;
+using static System.Net.Mime.MediaTypeNames;
 using static ClassLibrary_CameraManipulating.Filter;
 using MessageBox = System.Windows.Forms.MessageBox;
+using SystemColors = System.Drawing.SystemColors;
+
 namespace Smart_Camera
 {
 
@@ -43,11 +46,14 @@ namespace Smart_Camera
 
             // Start Capturing Video
             camera_Class.SetFrames(CapturedVideo);
-            Sizing_Class.SetSize(CapturedVideo, CapturedPicture, this);
+            ///////////////   Sizing_Class.SetSize(CapturedVideo, CapturedPicture, this);
             camera_Class.StartVideo(ComboBox_Camera);
 
             // Selecting first index of effects
             ComboBox_Effect.SelectedIndex = 0;
+
+            // ComboBox_Camera.DropDownStyle = ComboBoxStyle.DropDownList;
+            // ComboBox_Effect.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
@@ -164,7 +170,7 @@ namespace Smart_Camera
             if (control.GetType() == typeof(Button))
             {
                 int ButtonWidth = 250;
-                int ButtonHeight = 120;
+                int ButtonHeight = 110;
                 int TextSize = 22;
 
                 control.Width = (int)(ButtonWidth * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth)));
@@ -329,5 +335,46 @@ namespace Smart_Camera
 
         }
 
+
+        void SetHighLightColor(object sender, DrawItemEventArgs e, Color BackColor, Color FontColor)
+        {
+            if (e.Index < 0)
+            {
+                return;
+            }
+
+            ComboBox combo = sender as ComboBox;
+
+            // If selected fill in the wanted color
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(BackColor), e.Bounds);
+                e.Graphics.DrawString(combo.Items[e.Index].ToString(), e.Font, new SolidBrush(Color.White), e.Bounds);
+            }
+            //If other fill with default color
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(FontColor), e.Bounds);
+                e.Graphics.DrawString(combo.Items[e.Index].ToString(), e.Font, new SolidBrush(combo.ForeColor), new Point(e.Bounds.X, e.Bounds.Y));
+
+            }
+            //  e.ForeColor = Color.White;
+
+
+            e.DrawFocusRectangle();
+        }
+
+        Color cbxBackColor = Color.MediumTurquoise;
+        Color cbxFontColor = Color.White;
+
+        private void ComboBox_Camera_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            SetHighLightColor(sender, e, cbxBackColor, cbxFontColor);
+        }
+
+        private void ComboBox_Effect_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            SetHighLightColor(sender, e, cbxBackColor, cbxFontColor);
+        }
     }
 }

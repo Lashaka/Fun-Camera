@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1_Window));
             this.CapturedVideo = new System.Windows.Forms.PictureBox();
             this.CapturedPicture = new System.Windows.Forms.PictureBox();
             this.Label_LiveCamera = new System.Windows.Forms.Label();
@@ -47,59 +48,59 @@
             this.Label_TranValue = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.CapturedVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CapturedPicture)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // CapturedVideo
             // 
-            this.CapturedVideo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CapturedVideo.Location = new System.Drawing.Point(39, 52);
+            this.CapturedVideo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CapturedVideo.Location = new System.Drawing.Point(23, 23);
             this.CapturedVideo.Margin = new System.Windows.Forms.Padding(23);
             this.CapturedVideo.Name = "CapturedVideo";
-            this.CapturedVideo.Size = new System.Drawing.Size(663, 349);
+            this.CapturedVideo.Size = new System.Drawing.Size(696, 407);
             this.CapturedVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.CapturedVideo.TabIndex = 1;
             this.CapturedVideo.TabStop = false;
             // 
             // CapturedPicture
             // 
-            this.CapturedPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CapturedPicture.Location = new System.Drawing.Point(781, 52);
+            this.CapturedPicture.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CapturedPicture.Location = new System.Drawing.Point(765, 23);
             this.CapturedPicture.Margin = new System.Windows.Forms.Padding(23);
             this.CapturedPicture.Name = "CapturedPicture";
-            this.CapturedPicture.Size = new System.Drawing.Size(663, 349);
+            this.CapturedPicture.Size = new System.Drawing.Size(696, 407);
             this.CapturedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.CapturedPicture.TabIndex = 3;
             this.CapturedPicture.TabStop = false;
             // 
             // Label_LiveCamera
             // 
-            this.Label_LiveCamera.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.Label_LiveCamera.AutoSize = true;
             this.Label_LiveCamera.Font = new System.Drawing.Font("Roboto", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_LiveCamera.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.Label_LiveCamera.Location = new System.Drawing.Point(240, 453);
+            this.Label_LiveCamera.Location = new System.Drawing.Point(0, 0);
             this.Label_LiveCamera.Margin = new System.Windows.Forms.Padding(0);
             this.Label_LiveCamera.Name = "Label_LiveCamera";
-            this.Label_LiveCamera.Size = new System.Drawing.Size(261, 56);
+            this.Label_LiveCamera.Size = new System.Drawing.Size(742, 56);
             this.Label_LiveCamera.TabIndex = 4;
             this.Label_LiveCamera.Text = "Live Camera";
             this.Label_LiveCamera.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Label_Screenshot
             // 
-            this.Label_Screenshot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.Label_Screenshot.AutoSize = true;
             this.Label_Screenshot.Font = new System.Drawing.Font("Roboto", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Screenshot.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.Label_Screenshot.Location = new System.Drawing.Point(992, 453);
+            this.Label_Screenshot.Location = new System.Drawing.Point(0, 0);
             this.Label_Screenshot.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Screenshot.Name = "Label_Screenshot";
-            this.Label_Screenshot.Size = new System.Drawing.Size(241, 56);
+            this.Label_Screenshot.Size = new System.Drawing.Size(742, 56);
             this.Label_Screenshot.TabIndex = 5;
             this.Label_Screenshot.Text = "Screenshot";
             this.Label_Screenshot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,6 +114,7 @@
             // 
             this.Button_IncreaseTra.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Button_IncreaseTra.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.Button_IncreaseTra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_IncreaseTra.FlatAppearance.BorderSize = 0;
             this.Button_IncreaseTra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_IncreaseTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,6 +133,7 @@
             // 
             this.Button_DecreaseTran.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Button_DecreaseTran.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.Button_DecreaseTran.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_DecreaseTran.FlatAppearance.BorderSize = 0;
             this.Button_DecreaseTran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_DecreaseTran.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,10 +165,11 @@
             // 
             this.Button_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Button_Save.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.Button_Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Save.FlatAppearance.BorderSize = 2;
             this.Button_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Save.Font = new System.Drawing.Font("Roboto", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_Save.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Button_Save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Button_Save.Location = new System.Drawing.Point(988, 8);
             this.Button_Save.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Button_Save.Name = "Button_Save";
@@ -179,6 +183,7 @@
             // 
             this.Button_Capture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Button_Capture.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.Button_Capture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Capture.FlatAppearance.BorderSize = 2;
             this.Button_Capture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Capture.Font = new System.Drawing.Font("Roboto", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -195,6 +200,10 @@
             // ComboBox_Effect
             // 
             this.ComboBox_Effect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ComboBox_Effect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ComboBox_Effect.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBox_Effect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox_Effect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ComboBox_Effect.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBox_Effect.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.ComboBox_Effect.FormattingEnabled = true;
@@ -213,13 +222,14 @@
             "Disco Party",
             "Rainbow",
             "Chess",
-            "FlipX",
-            "FlipY"});
+            "Vertical Flip",
+            "Horizontal Flip"});
             this.ComboBox_Effect.Location = new System.Drawing.Point(562, 14);
             this.ComboBox_Effect.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ComboBox_Effect.Name = "ComboBox_Effect";
             this.ComboBox_Effect.Size = new System.Drawing.Size(170, 39);
             this.ComboBox_Effect.TabIndex = 9;
+            this.ComboBox_Effect.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_Effect_DrawItem);
             this.ComboBox_Effect.SelectedIndexChanged += new System.EventHandler(this.ComboBox_Effect_SelectedIndexChanged);
             // 
             // Label_Effect
@@ -251,6 +261,10 @@
             // ComboBox_Camera
             // 
             this.ComboBox_Camera.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ComboBox_Camera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ComboBox_Camera.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBox_Camera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox_Camera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ComboBox_Camera.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBox_Camera.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.ComboBox_Camera.FormattingEnabled = true;
@@ -259,6 +273,7 @@
             this.ComboBox_Camera.Name = "ComboBox_Camera";
             this.ComboBox_Camera.Size = new System.Drawing.Size(170, 39);
             this.ComboBox_Camera.TabIndex = 0;
+            this.ComboBox_Camera.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_Camera_DrawItem);
             // 
             // tableLayoutPanel2
             // 
@@ -310,17 +325,17 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.Label_LiveCamera, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.Label_Screenshot, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.CapturedVideo, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.CapturedPicture, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 1, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 194);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1484, 567);
             this.tableLayoutPanel4.TabIndex = 7;
             this.tableLayoutPanel4.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel4_CellPaint_1);
@@ -340,6 +355,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1484, 126);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.Label_LiveCamera);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 456);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(736, 73);
+            this.flowLayoutPanel1.TabIndex = 6;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.Label_Screenshot);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(745, 456);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(736, 73);
+            this.flowLayoutPanel2.TabIndex = 7;
+            // 
             // Form1_Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -350,6 +383,7 @@
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MinimumSize = new System.Drawing.Size(1350, 800);
             this.Name = "Form1_Window";
@@ -363,8 +397,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -388,6 +423,8 @@
         private System.Windows.Forms.Label Label_TranValue;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }
 

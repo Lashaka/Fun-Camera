@@ -36,7 +36,6 @@ namespace ClassLibrary_CameraManipulating
         public static Graphics ImageGraphics;
 
 
-
         /// Setting Enums
         public enum Effects
         {
