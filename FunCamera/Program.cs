@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SpyWare
 {
-    internal static class Program
+    partial class Form1_Window : Form
     {
         /// <summary>
         /// The main entry point for the application.

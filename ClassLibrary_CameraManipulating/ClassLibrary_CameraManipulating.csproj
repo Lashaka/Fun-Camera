@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera_Class.cs" />
+    <Compile Include="CircleMaking_Class.cs" />
     <Compile Include="Filter_Class.cs" />
     <Compile Include="Sizing_Class.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

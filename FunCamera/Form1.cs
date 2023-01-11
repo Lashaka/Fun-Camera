@@ -17,9 +17,10 @@ using AForge.Controls;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using ClassLibrary_CameraManipulating;
+using Smart_Camera;
 using static ClassLibrary_CameraManipulating.Filter;
 using MessageBox = System.Windows.Forms.MessageBox;
-namespace SpyWare
+namespace Smart_Camera
 {
 
     public partial class Form1_Window : Form
@@ -29,56 +30,30 @@ namespace SpyWare
         public Form1_Window()
         {
             InitializeComponent();
-            ComboBox_Effect.SelectedIndex = 0;
-
-            MakeACircle(Button_IncreaseTra, 4);
-            MakeACircle(Button_DecreaseTran, 4);
-            MakeACircle(Button_DecreaseTran, 4);
-
-
-
         }
 
-        public static void MakeACircle(Button btn, int value)
-        {
-            GraphicsPath p = new GraphicsPath();
-            p.AddEllipse(1, 1, btn.Width - value, btn.Height - value);
-            btn.Region = new Region(p);
-        }
 
-        public static void MakeACircle(Label btn, int value)
-        {
-            GraphicsPath p = new GraphicsPath();
-            p.AddEllipse(1, 1, btn.Width - value, btn.Height - value);
-            btn.Region = new Region(p);
-        }
-
-        private void Button_Capture_Click(object sender, EventArgs e)
-        {
-            if (Filter.FilterValue != (int)Filter.Effects.NoEffect) //if diffrent value than no color
-            {
-                CapturedPicture.Image = CapturedVideo.Image;   //applies filter if exists.
-            }
-            else //if no filter, skips the filter search and immidently prints result
-            {
-                CapturedPicture.Image = CapturedVideo.Image;
-            }
-
-        }
+        ///  Form Load & Close
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Make The Transperency related buttons circle shaped
+            CircleMaking_Class.MakeACircle(Button_IncreaseTra, 4);
+            CircleMaking_Class.MakeACircle(Button_DecreaseTran, 4);
+
+            // Start Capturing Video
             camera_Class.SetFrames(CapturedVideo, CapturedPicture);
-
             Sizing_Class.SetSize(CapturedVideo, CapturedPicture, this);
-
             camera_Class.StartVideo(ComboBox_Camera);
+
+            // Selecting first index of effects
+            ComboBox_Effect.SelectedIndex = 0;
+
         }
-
-
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // When Form stops, make sure to turn off the camera
             if (Camera_Class.VideoCaptureDevice != null)
             {
                 if (Camera_Class.VideoCaptureDevice.IsRunning == true)
@@ -86,15 +61,22 @@ namespace SpyWare
                     Camera_Class.VideoCaptureDevice.Stop();
                 }
             }
+        }
 
+
+
+
+        ///  Capture & Save buttons
+
+        private void Button_Capture_Click(object sender, EventArgs e)
+        {
+            CapturedPicture.Image = CapturedVideo.Image;
         }
 
         private void Button_Save_Click(object sender, EventArgs e)
         {
-            // CapturedPicture.Image.Save(@"Path", ImageFormat.Jpeg);
-            // Stream myStream;
+            // Setting Save File Dialog settings
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             saveFileDialog1.FileName = ".Jpeg";
             saveFileDialog1.FilterIndex = 2;
@@ -105,14 +87,12 @@ namespace SpyWare
             {
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-
                     if (saveFileDialog1.FileName != "" && saveFileDialog1.FileName != ".Jpeg")
                     {
-                        // Saves the Image via a FileStream created by the OpenFile method.
+                        // Saves the Image via a FileStream created by the OpenFile method
                         System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();
-                        // Saves the Image in the appropriate ImageFormat based upon the
-                        // File type selected in the dialog box.
-                        // NOTE that the FilterIndex property is one-based.
+
+                        // Saves the Image in the appropriate ImageFormat based upon the ile type selected in the dialog box
                         switch (saveFileDialog1.FilterIndex)
                         {
                             case 1:
@@ -131,14 +111,9 @@ namespace SpyWare
                                 break;
                         }
 
-                        // Code to write the stream goes here.
+                        // Code to write the stream goes here
                         fs.Close();
                     }
-                    else
-                    {
-                        MessageBox.Show("Please enter a valid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
                 }
             }
             else
@@ -147,6 +122,141 @@ namespace SpyWare
             }
         }
 
+
+
+
+        ///  Form Resize
+
+        // When user rezises all controls adapt accordingly
+        private void Form1_Window_ResizeEnd(object sender, EventArgs e)
+        {
+            ResizeAll();
+        }
+
+        // Selecting the resizable controls
+        void ResizeAll()
+        {
+            //buttons
+            ResizeControl(Button_Save);
+            ResizeControl(Button_Capture);
+
+            //labels
+            ResizeControl(Label_ChooseCamera);
+            ResizeControl(Label_Effect);
+            ResizeControl(Label_LiveCamera);
+            ResizeControl(Label_Screenshot);
+            ResizeControl(Label_TranValue);
+            ResizeControl(Label_Transparency);
+        }
+
+        // Function that resizes every control invidually 
+        void ResizeControl(Control control)
+        {
+            int originalFormWidth = 1500;
+            int originalFormHeight = 800;
+
+            // Get the current size of the screen
+            Rectangle screenSize = Screen.PrimaryScreen.Bounds;
+            float widthRatio = (float)screenSize.Width / (float)originalFormWidth;
+            float heightRatio = (float)screenSize.Height / (float)originalFormHeight;
+
+            // if type button
+            if (control.GetType() == typeof(Button))
+            {
+                int ButtonWidth = 250;
+                int ButtonHeight = 120;
+                int TextSize = 22;
+
+                control.Width = (int)(ButtonWidth * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth)));
+                control.Height = (int)(ButtonHeight * (Convert.ToDouble(this.Height) / Convert.ToDouble(originalFormHeight)));
+
+                control.Font = new Font("Roboto", (int)(TextSize * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth))), FontStyle.Bold);
+            }
+            //if type label && specific control names
+            else if (control.GetType() == typeof(Label) && (control.Name == "Label_Screenshot" || control.Name == "Label_LiveCamera"))
+            {
+                int TextSize = 32;
+
+                control.Font = new Font("Roboto", (int)(TextSize * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth))), FontStyle.Bold);
+
+            }
+            //all leftover labels
+            else if (control.GetType() == typeof(Label))
+            {
+                int TextSize = 22;
+
+                control.Font = new Font("Roboto", (int)(TextSize * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth))), FontStyle.Bold);
+
+            }
+
+
+        }
+
+        // To save latest window state
+        FormWindowState LastWindowState = FormWindowState.Minimized;
+
+        // Function that applies when window is maximized/minimized because ResizeEnd wont detect the change
+        private void Form1_Window_Resize(object sender, EventArgs e)
+        {
+            // When window state changes
+            if (WindowState != LastWindowState)
+            {
+                LastWindowState = WindowState;
+
+
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    // Maximized
+                    ResizeAll();
+                }
+                if (WindowState == FormWindowState.Normal)
+                {
+                    // Restored
+                    ResizeAll();
+                }
+            }
+        }
+
+
+
+
+        ///  Transparency control
+
+        // Increases transparency % to filter
+        private void Button_IncreaseTra_Click_1(object sender, EventArgs e)
+        {
+            if (Filter.Transparency <= 90)
+            {
+                Transparency += 10;
+                Label_TranValue.Text = Transparency.ToString();
+            }
+        }
+
+        // Decreases transparency % to filter
+        private void Button_DecreaseTran_Click_1(object sender, EventArgs e)
+        {
+            if (Filter.Transparency >= 10)
+            {
+                Transparency -= 10;
+                Label_TranValue.Text = Transparency.ToString();
+            }
+        }
+
+
+
+
+        ///  Others
+
+        // last row cells are the same colour as the background
+        private void tableLayoutPanel4_CellPaint_1(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            if (e.Row == 2)
+            {
+                e.Graphics.FillRectangle(Brushes.DimGray, e.CellBounds);
+            }
+        }
+
+        // Switch Case through all available filters
         private void ComboBox_Effect_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (ComboBox_Effect.SelectedIndex)
@@ -219,119 +329,5 @@ namespace SpyWare
 
         }
 
-        //last row cells are the same colour as the background, asked by the UI/UX designer 
-        private void tableLayoutPanel4_CellPaint_1(object sender, TableLayoutCellPaintEventArgs e)
-        {
-            if (e.Row == 2 )
-            {
-                e.Graphics.FillRectangle(Brushes.DimGray, e.CellBounds);
-            }
-        }
-
-        //When user rezises all controls adapt accordingly
-        private void Form1_Window_ResizeEnd(object sender, EventArgs e)
-        {
-            ResizeAll();
-        }
-
-        //Function that resizes every control invidually 
-        void ResizeControl(Control control)
-        {
-            int originalFormWidth = 1500;
-            int originalFormHeight = 800;
-
-            // Get the current size of the screen
-            Rectangle screenSize = Screen.PrimaryScreen.Bounds;
-            float widthRatio = (float)screenSize.Width / (float)originalFormWidth;
-            float heightRatio = (float)screenSize.Height / (float)originalFormHeight;
-
-            int textRatio = 1;
-
-            if (control.GetType() == typeof(Button)) 
-            {
-                int ButtonWidth = 250;
-                int ButtonHeight = 120;
-                int TextSize = 22;
-
-                control.Width = (int)(ButtonWidth * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth)));
-                control.Height = (int)(ButtonHeight * (Convert.ToDouble(this.Height) / Convert.ToDouble(originalFormHeight)));
-
-                control.Font= new Font("Roboto", (int)(TextSize * (textRatio * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth)))), FontStyle.Bold);
-            }
-            else if (control.GetType() == typeof(Label) && (control.Name== "Label_Screenshot" || control.Name == "Label_LiveCamera"))
-            {
-                int TextSize = 32;
-
-                control.Font = new Font("Roboto", (int)(TextSize * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth))), FontStyle.Bold);
-
-            }
-            else if (control.GetType() == typeof(Label))
-            {
-                int TextSize = 22;
-
-                control.Font = new Font("Roboto", (int)(TextSize * (textRatio * (Convert.ToDouble(this.Width) / Convert.ToDouble(originalFormWidth)))), FontStyle.Bold);
-
-            }
-
-
-        }
-
-        //Selecting the resizable controls
-        void ResizeAll()
-        {
-            ResizeControl(Button_Save);
-            ResizeControl(Button_Capture);
-
-            ResizeControl(Label_ChooseCamera);
-            ResizeControl(Label_Effect);
-            ResizeControl(Label_LiveCamera);
-            ResizeControl(Label_Screenshot);
-            ResizeControl(Label_TranValue);
-            ResizeControl(Label_Transparency);
-        }
-
-
-        //to save latest window state
-        FormWindowState LastWindowState = FormWindowState.Minimized;
-
-        //Function that applies when window is maximized/minimized because ResizeEnd wont detect the change
-        private void Form1_Window_Resize(object sender, EventArgs e)
-        {
-            // When window state changes
-            if (WindowState != LastWindowState)
-            {
-                LastWindowState = WindowState;
-
-
-                if (WindowState == FormWindowState.Maximized)
-                {
-                    ResizeAll();
-                    // Maximized!
-                }
-                if (WindowState == FormWindowState.Normal)
-                {
-                    ResizeAll();
-                    // Restored!
-                }
-            }
-        }
-
-        private void Button_IncreaseTra_Click_1(object sender, EventArgs e)
-        {
-            if (Filter.Transparency <= 90)
-            {
-                Transparency += 10;
-                Label_TranValue.Text = Transparency.ToString();
-            }
-        }
-
-        private void Button_DecreaseTran_Click_1(object sender, EventArgs e)
-        {
-            if (Filter.Transparency >= 10)
-            {
-                Transparency -= 10;
-                Label_TranValue.Text = Transparency.ToString();
-            }
-        }
     }
 }

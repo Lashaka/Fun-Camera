@@ -1,4 +1,4 @@
-﻿namespace SpyWare
+﻿namespace Smart_Camera
 {
     partial class Form1_Window
     {
