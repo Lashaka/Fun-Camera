@@ -376,5 +376,77 @@ namespace Smart_Camera
         {
             SetHighLightColor(sender, e, cbxBackColor, cbxFontColor);
         }
+
+        void SetButtonBorder(Button btn, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, Button_Capture.ClientRectangle,
+            SystemColors.ActiveBorder, 4, ButtonBorderStyle.Inset,
+            SystemColors.ActiveBorder, 4, ButtonBorderStyle.Inset,
+            SystemColors.ActiveBorder, 4, ButtonBorderStyle.Inset,
+            SystemColors.ActiveBorder, 4, ButtonBorderStyle.Inset);
+        }
+        private void Button_Capture_Paint(object sender, PaintEventArgs e)
+        {
+            SetButtonBorder(Button_Capture,e);
+
+            //GraphicsPath GraphPath = new GraphicsPath();
+            //Rectangle Rect = new Rectangle(0, 0, Button_Capture.Width, Button_Capture.Height);
+
+            //int radius = 30;
+
+            //float r2 = radius / 2f;
+
+            //GraphPath.AddArc(Rect.X, Rect.Y, radius, radius, 180, 90);
+            //GraphPath.AddLine(Rect.X + r2, Rect.Y, Rect.Width - r2, Rect.Y);
+            //GraphPath.AddArc(Rect.X + Rect.Width - radius, Rect.Y, radius, radius, 270, 90);
+            //GraphPath.AddLine(Rect.Width, Rect.Y + r2, Rect.Width, Rect.Height - r2);
+            //GraphPath.AddArc(Rect.X + Rect.Width - radius,
+            //                 Rect.Y + Rect.Height - radius, radius, radius, 0, 90);
+            //GraphPath.AddLine(Rect.Width - r2, Rect.Height, Rect.X + r2, Rect.Height);
+            //GraphPath.AddArc(Rect.X, Rect.Y + Rect.Height - radius, radius, radius, 90, 90);
+            //GraphPath.AddLine(Rect.X, Rect.Height - r2, Rect.X, Rect.Y + r2);
+            //GraphPath.CloseFigure();
+            //Button_Capture.Region = new Region(GraphPath);
+
+            //using (Pen pen = new Pen(Color.White, 1.75f))
+            //{
+            //    pen.Alignment = PenAlignment.Inset;
+            //    e.Graphics.DrawPath(pen, GraphPath);
+            //}
+
+            //Button_Capture.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, Color.Black);
+
+            ////  Button_Capture.UseVisualStyleBackColor = true;
+
+        }
+
+        private void Button_Save_Paint(object sender, PaintEventArgs e)
+        {
+            SetButtonBorder(Button_Save, e);
+
+        }
+
+        private void Button_IncreaseTra_Paint(object sender, PaintEventArgs e)
+        {
+            //GraphicsPath GraphPath = new GraphicsPath();
+            //Rectangle Rect = new Rectangle(0, 0, Button_Capture.Width, Button_Capture.Height);
+
+            //int radius = 10;
+
+            //float r2 = radius / 2f;
+
+            //GraphPath.AddLine(Rect.X + r2, Rect.Y, Rect.Width - r2, Rect.Y);
+            //GraphPath.AddLine(Rect.Width, Rect.Y + r2, Rect.Width, Rect.Height - r2);
+            //GraphPath.AddLine(Rect.Width - r2, Rect.Height, Rect.X + r2, Rect.Height);
+            //GraphPath.AddLine(Rect.X, Rect.Height - r2, Rect.X, Rect.Y + r2);
+            //GraphPath.CloseFigure();
+            //Button_IncreaseTra.Region = new Region(GraphPath);
+
+            //using (Pen pen = new Pen(Color.White, 1.75f))
+            //{
+            //    pen.Alignment = PenAlignment.Inset;
+            //    e.Graphics.DrawPath(pen, GraphPath);
+            //}
+        }
     }
 }

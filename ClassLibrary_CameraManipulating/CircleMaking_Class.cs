@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpenXmlPowerTools;
 
 namespace Smart_Camera
 {
@@ -17,6 +18,7 @@ namespace Smart_Camera
             GraphicsPath p = new GraphicsPath();
             p.AddEllipse(1, 1, btn.Width - value, btn.Height - value);
             btn.Region = new Region(p);
+
         }
     }
 }

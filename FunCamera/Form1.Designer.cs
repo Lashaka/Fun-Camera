@@ -47,20 +47,21 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Label_TranValue = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.CapturedVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CapturedPicture)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CapturedVideo
             // 
+            this.CapturedVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CapturedVideo.Dock = System.Windows.Forms.DockStyle.Left;
             this.CapturedVideo.Location = new System.Drawing.Point(23, 23);
             this.CapturedVideo.Margin = new System.Windows.Forms.Padding(23);
@@ -72,6 +73,8 @@
             // 
             // CapturedPicture
             // 
+            this.CapturedPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CapturedPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CapturedPicture.Dock = System.Windows.Forms.DockStyle.Right;
             this.CapturedPicture.Location = new System.Drawing.Point(765, 23);
             this.CapturedPicture.Margin = new System.Windows.Forms.Padding(23);
@@ -128,6 +131,7 @@
             this.Button_IncreaseTra.Text = "+";
             this.Button_IncreaseTra.UseVisualStyleBackColor = false;
             this.Button_IncreaseTra.Click += new System.EventHandler(this.Button_IncreaseTra_Click_1);
+            this.Button_IncreaseTra.Paint += new System.Windows.Forms.PaintEventHandler(this.Button_IncreaseTra_Paint);
             // 
             // Button_DecreaseTran
             // 
@@ -178,6 +182,7 @@
             this.Button_Save.Text = "Save";
             this.Button_Save.UseVisualStyleBackColor = false;
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
+            this.Button_Save.Paint += new System.Windows.Forms.PaintEventHandler(this.Button_Save_Paint);
             // 
             // Button_Capture
             // 
@@ -196,6 +201,7 @@
             this.Button_Capture.Text = "Take A Screenshot";
             this.Button_Capture.UseVisualStyleBackColor = false;
             this.Button_Capture.Click += new System.EventHandler(this.Button_Capture_Click);
+            this.Button_Capture.Paint += new System.Windows.Forms.PaintEventHandler(this.Button_Capture_Paint);
             // 
             // ComboBox_Effect
             // 
@@ -310,10 +316,10 @@
             this.Label_TranValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Label_TranValue.Font = new System.Drawing.Font("Roboto", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_TranValue.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.Label_TranValue.Location = new System.Drawing.Point(1220, 4);
+            this.Label_TranValue.Location = new System.Drawing.Point(1220, 9);
             this.Label_TranValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_TranValue.Name = "Label_TranValue";
-            this.Label_TranValue.Size = new System.Drawing.Size(150, 60);
+            this.Label_TranValue.Size = new System.Drawing.Size(150, 50);
             this.Label_TranValue.TabIndex = 11;
             this.Label_TranValue.Text = "100";
             this.Label_TranValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -340,21 +346,6 @@
             this.tableLayoutPanel4.TabIndex = 7;
             this.tableLayoutPanel4.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel4_CellPaint_1);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.Button_Capture, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Button_Save, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 68);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1484, 126);
-            this.tableLayoutPanel1.TabIndex = 8;
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.Label_LiveCamera);
@@ -372,6 +363,21 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(736, 73);
             this.flowLayoutPanel2.TabIndex = 7;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.Button_Capture, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Button_Save, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 68);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1484, 126);
+            this.tableLayoutPanel1.TabIndex = 8;
             // 
             // Form1_Window
             // 
@@ -397,9 +403,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
