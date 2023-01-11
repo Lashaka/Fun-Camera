@@ -72,10 +72,11 @@ D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Video.xml
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\bin\Debug\AForge.Video.DirectShow.xml
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.AssemblyReference.cache
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.SuggestedBindingRedirects.cache
-D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\SpyWare.Form1_Window.resources
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.Properties.Resources.resources
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.GenerateResource.cache
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.CoreCompileInputs.cache
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.csproj.CopyComplete
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.exe
 D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.pdb
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.Form1_Window.resources
+D:\Projects\Git\My Git\Fun-Camera\FunCamera\obj\Debug\Smart_Camera.Program.resources
