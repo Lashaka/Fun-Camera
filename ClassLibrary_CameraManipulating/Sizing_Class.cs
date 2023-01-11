@@ -10,6 +10,7 @@ namespace ClassLibrary_CameraManipulating
 {
     public static class Sizing_Class 
     {
+        // Setting sizes to CapturedPicture & CapturedVideo PictureBoxes
         public static void SetSize(PictureBox CapturedVideo, PictureBox CapturedPicture,Form ThisForm)
         {
             int ScreenHeight = ThisForm.Size.Height; //Gets user screen Height
@@ -21,14 +22,12 @@ namespace ClassLibrary_CameraManipulating
 
             CapturedVideo.Width = ScreenWidth / 3;
             CapturedVideo.Height = ScreenHeight / 2;
-            // \\
 
             //setting location of both image boxes
             Point point1 = new Point(ScreenWidth/2 , ScreenHeight /4);
             CapturedPicture.Location = point1;
             Point point2 = new Point(ScreenWidth / 8, ScreenHeight / 4);
             CapturedVideo.Location = point2;
-            // \\
 
         }
     }

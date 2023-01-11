@@ -23,11 +23,21 @@ namespace ClassLibrary_CameraManipulating
 {
     public static class Filter
     {
+        /// Default variables
+        
+        // Filter Control
         public static int FilterValue = 0;
+
+        // Control filter transparency
+        public static int Transparency = 100; 
+
+        // Image output & Input temp save
         public static Bitmap OutputImage;
         public static Graphics ImageGraphics;
-        public static int Transparency = 100; //lets user control filter transparency
 
+
+
+        /// Setting Enums
         public enum Effects
         {
             NoEffect,
@@ -48,31 +58,31 @@ namespace ClassLibrary_CameraManipulating
             FlipY
         }
 
-        public static void ApplyColor(ref Graphics ImageGraphics, Bitmap OutputImage, Color color)
-        {
-            ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Blue)), 0, 0, OutputImage.Width, OutputImage.Height);
-            ImageGraphics.Dispose();
-        }
 
-        public static Image ImageToFilter(this Image inputImage) //uses enum values for better understanding of code
+        /// Filtering captured images through selected filter
+        public static Image ImageToFilter(this Image inputImage) 
         {
+            // Dispose 
             if (ImageGraphics != null)
             {
                 ImageGraphics.Dispose();
 
             }
 
+            // variables
             int InputImageWidth = inputImage.Width;
             int InputImageHeight = inputImage.Height;
 
+            // Inputting values to local variables
             OutputImage = new Bitmap(inputImage.Width, inputImage.Height);
             ImageGraphics = Graphics.FromImage(OutputImage);
             ImageGraphics.DrawImage(inputImage, 0, 0);
 
-            inputImage.Dispose(); // disposing after usage to prevent memory leak
+            // Disposing after usage to prevent memory leak
+            inputImage.Dispose(); 
 
 
-            //select the color
+            // Filter Select
             switch (FilterValue)
             {
                 case (int)Effects.NoEffect:
@@ -80,7 +90,6 @@ namespace ClassLibrary_CameraManipulating
 
                 case (int)Effects.Blue:
                     ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Blue)), 0, 0, OutputImage.Width, OutputImage.Height);
-                    //   ApplyColor(ref ImageGraphics, OutputImage, Color.Blue);
                     break;
 
                 case (int)Effects.Red:
@@ -119,7 +128,7 @@ namespace ClassLibrary_CameraManipulating
                     ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Brown)), 0, 0, OutputImage.Width, OutputImage.Height);
                     break;
 
-                case (int)Effects.DiscoParty: //random color
+                case (int)Effects.DiscoParty: // Random color
                     Random random = new Random();
                     int RandomNum = random.Next(-1, 10);
                     string str = ((Effects)RandomNum).ToString();
@@ -128,8 +137,10 @@ namespace ClassLibrary_CameraManipulating
                     ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, RandomColor)), 0, 0, OutputImage.Width, OutputImage.Height);
                     break;
 
-                case (int)Effects.Rainbow: //all rainbow colors
-                    int RainbowPortion = OutputImage.Height / 7; // to calculate heigth easier for heigth
+                case (int)Effects.Rainbow: // Rainbow colors
+
+                    //  Pattern Calculation
+                    int RainbowPortion = OutputImage.Height / 7; 
 
                     ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Red)), 0, 0, OutputImage.Width, RainbowPortion);
                     ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Orange)), 0, RainbowPortion, OutputImage.Width, RainbowPortion);
@@ -140,52 +151,36 @@ namespace ClassLibrary_CameraManipulating
                     ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Violet)), 0, RainbowPortion * 6, OutputImage.Width, RainbowPortion);
                     break;
 
-                case (int)Effects.Chess: //all rainbow colors
-                    int ChessPortionHeight = OutputImage.Height / 10; // to calculate heigth easier for heigth
-                    int ChessPortionWidth = OutputImage.Width / 10; // to calculate heigth easier for Width
+                case (int)Effects.Chess: // Chess Pattern
+                     
+                    //  Pattern Calculation
+                    int ChessPortionHeight = OutputImage.Height / 10; 
+                    int ChessPortionWidth = OutputImage.Width / 10; 
 
-                    bool BlackOrWhite = true; //true = white, false = black
                     for (int i = 0; i < 10; i++)
                     {
-                        if (BlackOrWhite == false)
-                        {
-                            BlackOrWhite = true;
-                        }
-                        else
-                        {
-                            BlackOrWhite = false;
-                        }
                         for (int j = 0; j < 10; j++)
                         {
-                            if (BlackOrWhite == true)
-                            {
-                                ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.White)), ChessPortionWidth * i, ChessPortionHeight * j, ChessPortionWidth, ChessPortionHeight);
-                                BlackOrWhite = false;
-                            }
-                            else
-                            {
-                                ImageGraphics.FillRectangle(new SolidBrush(Color.FromArgb(Transparency, Color.Black)), ChessPortionWidth * i, ChessPortionHeight * j, ChessPortionWidth, ChessPortionHeight);
-                                BlackOrWhite = true;
-                            }
+                            bool isWhite = (i + j) % 2 == 0;
+                            Color cellColor = isWhite ? Color.FromArgb(Transparency, Color.White) : Color.FromArgb(Transparency, Color.Black);
+                            ImageGraphics.FillRectangle(new SolidBrush(cellColor), ChessPortionWidth * i, ChessPortionHeight * j, ChessPortionWidth, ChessPortionHeight);
                         }
                     }
                     break;
 
 
-                case (int)Effects.FlipX: //random color        //BUGGED           
+                case (int)Effects.FlipX: // Flips horizonically     
 
                     OutputImage.RotateFlip(RotateFlipType.Rotate180FlipX);
-
-
                     break;
 
-                case (int)Effects.FlipY: //random color        //BUGGED              
-
+                case (int)Effects.FlipY: // Flips vertically                  
 
                     OutputImage.RotateFlip(RotateFlipType.Rotate180FlipY);
                     break;
             }
 
+            // Save temp image
             string Path = AppDomain.CurrentDomain.BaseDirectory + @"tempImages/temp.png";
 
 

@@ -15,26 +15,34 @@ namespace ClassLibrary_CameraManipulating
     {
         public static FilterInfoCollection filterInfoCollection;
         public static VideoCaptureDevice VideoCaptureDevice;
-
         System.Windows.Forms.PictureBox CapturedVideo;
-        System.Windows.Forms.PictureBox CapturedPicture;
 
 
-
-        public void SetFrames(System.Windows.Forms.PictureBox capturedVideo, System.Windows.Forms.PictureBox capturedPicture)
+        // Set the PictureBox to get the Captured Video
+        public void SetFrames(System.Windows.Forms.PictureBox capturedVideo)
         {
             CapturedVideo = capturedVideo;
-            CapturedPicture = capturedPicture;
         }
 
+        // Input the Captured Video into the PictureBox
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            System.GC.Collect();
+            CapturedVideo.Image = Filter.ImageToFilter((Bitmap)eventArgs.Frame.Clone());
+        }
+
+        // Gets Cameras and starts the default one, if exists
         public void StartVideo(ComboBox ComboBox_Camera)
         {
-            //adding all cameras to combo box
+            
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            // If no camera detected, show message
             if(filterInfoCollection.Count<1)
             {
                 MessageBox.Show("No camera detected, please connect it and try running the program again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // Else, Add all cameras to combo box & Start the camera
             else
             {
                 foreach (FilterInfo filterInfo in filterInfoCollection)
@@ -43,23 +51,14 @@ namespace ClassLibrary_CameraManipulating
                     ComboBox_Camera.SelectedIndex = 0;
                     VideoCaptureDevice = new VideoCaptureDevice();
                 }
-                // \\
 
-                // this starts the camera ( can convert to btn or whatever event)
+                // Starts the camera
                 VideoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[ComboBox_Camera.SelectedIndex].MonikerString);
                 VideoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
                 VideoCaptureDevice.Start();
-
-                // \\
             }
 
         }
 
-        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            System.GC.Collect();
-
-            CapturedVideo.Image = Filter.ImageToFilter((Bitmap)eventArgs.Frame.Clone());
-        }
     }
 }

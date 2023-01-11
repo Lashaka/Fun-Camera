@@ -42,7 +42,7 @@ namespace Smart_Camera
             CircleMaking_Class.MakeACircle(Button_DecreaseTran, 4);
 
             // Start Capturing Video
-            camera_Class.SetFrames(CapturedVideo, CapturedPicture);
+            camera_Class.SetFrames(CapturedVideo);
             Sizing_Class.SetSize(CapturedVideo, CapturedPicture, this);
             camera_Class.StartVideo(ComboBox_Camera);
 
