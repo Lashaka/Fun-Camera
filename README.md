@@ -13,10 +13,11 @@ This is a C# WinForm application that allows the user to access their camera, ap
 
 ## Getting Started
 1. Download and install the application from the provided link.
-2. Run the application and grant it access to your camera when prompted.
-3. The application will open a window displaying the live video feed from your camera.
-4. Select a filter from the available options in the filter menu.
-5. You can click the save button to save the filtered video to your computer.
+2. Make sure to use set Smart_Cameraas startup Project
+3. Run the application and grant it access to your camera when prompted.
+4. The application will open a window displaying the live video feed from your camera.
+5. Select a filter from the available options in the filter menu.
+6. You can click the save button to save the filtered video to your computer.
 
 ## Development Progress
 ### Sketch Version:
