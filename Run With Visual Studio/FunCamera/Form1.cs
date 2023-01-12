@@ -1,26 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
-using AForge.Controls;
-using AForge.Video;
-using AForge.Video.DirectShow;
 using ClassLibrary_CameraManipulating;
-using Smart_Camera;
-using static System.Net.Mime.MediaTypeNames;
+using Microsoft.Win32;
 using static ClassLibrary_CameraManipulating.Filter;
 using MessageBox = System.Windows.Forms.MessageBox;
+using SaveFileDialog = System.Windows.Forms.SaveFileDialog;
 using SystemColors = System.Drawing.SystemColors;
 
 namespace Smart_Camera
@@ -84,7 +69,8 @@ namespace Smart_Camera
             // Setting Save File Dialog settings
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            saveFileDialog1.FileName = ".Jpeg";
+            saveFileDialog1.FileName = "MyScreenShot";
+            saveFileDialog1.DefaultExt = ".Jpeg";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.Title = "Save an Image File";
@@ -336,6 +322,14 @@ namespace Smart_Camera
         }
 
 
+
+        /// Highlight for combobox
+
+        // Setting the new wanted highlited colors
+        Color cbxBackColor = Color.MediumTurquoise;
+        Color cbxFontColor = Color.White;
+
+        // Setting highlighted color to combobox in order to remove default blue
         void SetHighLightColor(object sender, DrawItemEventArgs e, Color BackColor, Color FontColor)
         {
             if (e.Index < 0)
@@ -358,25 +352,27 @@ namespace Smart_Camera
                 e.Graphics.DrawString(combo.Items[e.Index].ToString(), e.Font, new SolidBrush(combo.ForeColor), new Point(e.Bounds.X, e.Bounds.Y));
 
             }
-            //  e.ForeColor = Color.White;
-
 
             e.DrawFocusRectangle();
         }
 
-        Color cbxBackColor = Color.MediumTurquoise;
-        Color cbxFontColor = Color.White;
-
+        // Applying new colors to combobox
         private void ComboBox_Camera_DrawItem(object sender, DrawItemEventArgs e)
         {
             SetHighLightColor(sender, e, cbxBackColor, cbxFontColor);
         }
 
+        // Applying new colors to combobox
         private void ComboBox_Effect_DrawItem(object sender, DrawItemEventArgs e)
         {
             SetHighLightColor(sender, e, cbxBackColor, cbxFontColor);
         }
 
+
+
+        /// Button design
+
+        // Setting border
         void SetButtonBorder(Button btn, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, Button_Capture.ClientRectangle,
@@ -385,68 +381,17 @@ namespace Smart_Camera
             SystemColors.ActiveBorder, 4, ButtonBorderStyle.Inset,
             SystemColors.ActiveBorder, 4, ButtonBorderStyle.Inset);
         }
+
+        // Applying border
         private void Button_Capture_Paint(object sender, PaintEventArgs e)
         {
             SetButtonBorder(Button_Capture,e);
-
-            //GraphicsPath GraphPath = new GraphicsPath();
-            //Rectangle Rect = new Rectangle(0, 0, Button_Capture.Width, Button_Capture.Height);
-
-            //int radius = 30;
-
-            //float r2 = radius / 2f;
-
-            //GraphPath.AddArc(Rect.X, Rect.Y, radius, radius, 180, 90);
-            //GraphPath.AddLine(Rect.X + r2, Rect.Y, Rect.Width - r2, Rect.Y);
-            //GraphPath.AddArc(Rect.X + Rect.Width - radius, Rect.Y, radius, radius, 270, 90);
-            //GraphPath.AddLine(Rect.Width, Rect.Y + r2, Rect.Width, Rect.Height - r2);
-            //GraphPath.AddArc(Rect.X + Rect.Width - radius,
-            //                 Rect.Y + Rect.Height - radius, radius, radius, 0, 90);
-            //GraphPath.AddLine(Rect.Width - r2, Rect.Height, Rect.X + r2, Rect.Height);
-            //GraphPath.AddArc(Rect.X, Rect.Y + Rect.Height - radius, radius, radius, 90, 90);
-            //GraphPath.AddLine(Rect.X, Rect.Height - r2, Rect.X, Rect.Y + r2);
-            //GraphPath.CloseFigure();
-            //Button_Capture.Region = new Region(GraphPath);
-
-            //using (Pen pen = new Pen(Color.White, 1.75f))
-            //{
-            //    pen.Alignment = PenAlignment.Inset;
-            //    e.Graphics.DrawPath(pen, GraphPath);
-            //}
-
-            //Button_Capture.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, Color.Black);
-
-            ////  Button_Capture.UseVisualStyleBackColor = true;
-
         }
 
+        // Applying border
         private void Button_Save_Paint(object sender, PaintEventArgs e)
         {
             SetButtonBorder(Button_Save, e);
-
-        }
-
-        private void Button_IncreaseTra_Paint(object sender, PaintEventArgs e)
-        {
-            //GraphicsPath GraphPath = new GraphicsPath();
-            //Rectangle Rect = new Rectangle(0, 0, Button_Capture.Width, Button_Capture.Height);
-
-            //int radius = 10;
-
-            //float r2 = radius / 2f;
-
-            //GraphPath.AddLine(Rect.X + r2, Rect.Y, Rect.Width - r2, Rect.Y);
-            //GraphPath.AddLine(Rect.Width, Rect.Y + r2, Rect.Width, Rect.Height - r2);
-            //GraphPath.AddLine(Rect.Width - r2, Rect.Height, Rect.X + r2, Rect.Height);
-            //GraphPath.AddLine(Rect.X, Rect.Height - r2, Rect.X, Rect.Y + r2);
-            //GraphPath.CloseFigure();
-            //Button_IncreaseTra.Region = new Region(GraphPath);
-
-            //using (Pen pen = new Pen(Color.White, 1.75f))
-            //{
-            //    pen.Alignment = PenAlignment.Inset;
-            //    e.Graphics.DrawPath(pen, GraphPath);
-            //}
         }
     }
 }

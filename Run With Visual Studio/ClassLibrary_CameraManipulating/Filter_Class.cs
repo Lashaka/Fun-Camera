@@ -1,23 +1,5 @@
-﻿using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using DocumentFormat.OpenXml.InkML;
-using DocumentFormat.OpenXml.Office2013.Excel;
-using DocumentFormat.OpenXml.Vml;
-using ImageProcessor;
-using ImageProcessor.Imaging.Formats;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
-using ImageBrush = System.Windows.Media.ImageBrush;
-using Rectangle = System.Drawing.Rectangle;
 
 namespace ClassLibrary_CameraManipulating
 {

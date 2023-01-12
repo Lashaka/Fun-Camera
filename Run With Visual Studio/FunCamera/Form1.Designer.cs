@@ -131,7 +131,6 @@
             this.Button_IncreaseTra.Text = "+";
             this.Button_IncreaseTra.UseVisualStyleBackColor = false;
             this.Button_IncreaseTra.Click += new System.EventHandler(this.Button_IncreaseTra_Click_1);
-            this.Button_IncreaseTra.Paint += new System.Windows.Forms.PaintEventHandler(this.Button_IncreaseTra_Paint);
             // 
             // Button_DecreaseTran
             // 
